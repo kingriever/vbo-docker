@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   vbo-rest:
     image: 'vbo-rest:latest'
@@ -6,4 +6,6 @@ services:
     ports:
         - '80:80'
     volumes:
-        - ./html:/var/www/html
+        - html:/var/www/html
+volumes: 
+    html:
