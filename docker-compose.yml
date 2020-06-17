@@ -1,0 +1,9 @@
+version: '2'
+services:
+  vbo-rest:
+    image: “vbo-rest:latest”
+    container_name: “vbo-rest”
+    ports:
+        - “80:80”
+    volumes:
+        - ./html:var/www/html

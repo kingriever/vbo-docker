@@ -31,3 +31,4 @@ RUN curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f comp
 RUN git clone https://github.com/nielsengelen/vbo365-rest.git
 RUN cp -r vbo365-rest/* /var/www/html/
 RUN cd /var/www/html && composer install
+CMD [ "service apache2 restart" ]
