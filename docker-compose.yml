@@ -6,6 +6,4 @@ services:
     ports:
         - '80:80'
     volumes:
-        - html:/var/www/html
-volumes: 
-    html:
+    - ./config:~/vbo-config
