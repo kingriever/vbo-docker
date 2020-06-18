@@ -17,7 +17,7 @@ RUN service apache2 restart
 RUN touch temp.txt
 
 RUN echo "    <Directory /var/www/html>" >> temp.txt 
-RUN echo "        Options Indexes FollowSymLinks MultiViews" >> temp.txt
+RUN echo "        Options Indexes +FollowSymLinks MultiViews" >> temp.txt
 RUN echo "        AllowOverride All"   >> temp.txt
 RUN echo "        Require all granted" >> temp.txt
 RUN echo "    </Directory>" >> temp.txt
