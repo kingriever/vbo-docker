@@ -32,10 +32,11 @@ RUN git clone https://github.com/nielsengelen/vbo365-rest.git
 RUN cp -r vbo365-rest/* /var/www/html/
 RUN cd /var/www/html && composer install
 
-RUN mkdir /root/vbo-config
-RUN mv /var/www/html/config.php /root/vbo-config
-RUN mv /var/www/html/setup.php /root/vbo-config
-RUN ln -s /root/vbo-config/config.php /var/www/html/config.php
-RUN ln -s /root/vbo-config/setup.php /var/www/html/setup.php
+RUN mkdir /var/www/html/vbo-config
+RUN mv /var/www/html/config.php /var/www/html/vbo-config
+RUN mv /var/www/html/setup.php /var/www/html/vbo-config
+RUN ln -s /var/www/html/vbo-config/config.php /var/www/html/config.php
+RUN ln -s /var/www/html/vbo-config/setup.php /var/www/html/setup.php
+RUN chown -R www-data:www-data /var/www/html/vbo-config
 
 CMD [ "/usr/sbin/apachectl", "-D", "FOREGROUND" ]
