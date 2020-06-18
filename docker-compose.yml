@@ -5,5 +5,5 @@ services:
     container_name: 'vbo-rest'
     ports:
         - '80:80'
-#    volumes:
- #       - ./config:/root/vbo-config 
+    volumes:
+        - ./config:/var/www/html/vbo-config
