@@ -26,9 +26,6 @@ RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default
 RUN touch /var/www/html/.htaccess
 RUN echo "RewriteEngine on" > /var/www/html/.htaccess
 
-RUN usermod -u 1000 www-data
-RUN groupmod -g 1000 www-data
-
 # Setup composer
 RUN curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar /usr/local/bin/composer
 RUN git clone https://github.com/nielsengelen/vbo365-rest.git
