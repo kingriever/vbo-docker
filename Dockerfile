@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install deps
 RUN apt --yes update
 RUN apt --yes install apache2
-RUN apt --yes install php libapache2-mod-php
+RUN apt --yes install php libapache2-mod-php php-curl
 RUN apt --yes install curl git
 RUN apt --yes install zip unzip php-zip
 
