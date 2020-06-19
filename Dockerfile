@@ -29,7 +29,7 @@ RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default
 # Setup composer
 RUN curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar /usr/local/bin/composer
 RUN git clone https://github.com/nielsengelen/vbo365-rest.git
-RUN cp -r . vbo365-rest/* /var/www/html/
+RUN cp -r vbo365-rest/. /var/www/html/
 RUN cd /var/www/html && composer install
 
 RUN mkdir /var/www/html/vbo-config
