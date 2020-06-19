@@ -23,7 +23,7 @@ RUN echo "        Require all granted" >> temp.txt
 RUN echo "    </Directory>" >> temp.txt
 
 RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default.conf
-RUN touch /var/www/html/.htaccess
+# RUN touch /var/www/html/.htaccess
 # RUN echo "RewriteEngine on" > /var/www/html/.htaccess
 
 # Setup composer
