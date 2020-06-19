@@ -23,6 +23,8 @@ RUN echo "        Require all granted" >> temp.txt
 RUN echo "    </Directory>" >> temp.txt
 
 RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default.conf
+
+RUN sed -i "s/max_execution_time.*/max_execution_time = 0/g" /etc/php/7.4/apache2/php.ini
 # RUN touch /var/www/html/.htaccess
 # RUN echo "RewriteEngine on" > /var/www/html/.htaccess
 
