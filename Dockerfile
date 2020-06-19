@@ -24,7 +24,7 @@ RUN echo "    </Directory>" >> temp.txt
 
 RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default.conf
 RUN touch /var/www/html/.htaccess
-RUN echo "RewriteEngine on" > /var/www/html/.htaccess
+# RUN echo "RewriteEngine on" > /var/www/html/.htaccess
 
 # Setup composer
 RUN curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar /usr/local/bin/composer
