@@ -22,11 +22,10 @@ RUN echo "        AllowOverride All"   >> temp.txt
 RUN echo "        Require all granted" >> temp.txt
 RUN echo "    </Directory>" >> temp.txt
 
+RUN sed -i 's/VirtualHost.*/VirtualHost *:443>/g' /etc/apache2/sites-available/000-default.conf
 RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default.conf
 
 RUN sed -i "s/max_execution_time.*/max_execution_time = 0/g" /etc/php/7.4/apache2/php.ini
-# RUN touch /var/www/html/.htaccess
-# RUN echo "RewriteEngine on" > /var/www/html/.htaccess
 
 # Setup composer
 RUN curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar /usr/local/bin/composer
