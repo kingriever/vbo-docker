@@ -26,7 +26,7 @@ RUN echo "    </Directory>" >> temp.txt
 #RUN echo "SSLCertificateKeyFile /path/to/your_private.key" >> temp.txt
 #RUN echo "SSLCertificateChainFile /path/to/DigiCertCA.crt" >> temp.txt
 
-RUN sed -i 's/VirtualHost.*/VirtualHost *:443>/g' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's/VirtualHost :80*/VirtualHost :443>/g' /etc/apache2/sites-available/000-default.conf
 RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default.conf
 
 RUN sed -i "s/max_execution_time.*/max_execution_time = 0/g" /etc/php/7.4/apache2/php.ini
@@ -44,4 +44,4 @@ RUN ln -s /var/www/html/vbo-config/config.php /var/www/html/config.php
 RUN ln -s /var/www/html/vbo-config/setup.php /var/www/html/setup.php
 RUN chown -R www-data:www-data /var/www/html/vbo-config
 
-#CMD [ "/usr/sbin/apachectl", "-D", "FOREGROUND" ]
+CMD [ "/usr/sbin/apachectl", "-D", "FOREGROUND" ]
