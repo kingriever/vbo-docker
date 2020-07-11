@@ -31,7 +31,7 @@ RUN echo "      SSLCertificateKeyFile /var/www/html/certs/buhwild2020.key" >> te
 RUN echo "      SSLCertificateChainFile /var/www/html/certs/buhwild2020-ca.crt" >> temp.txt
 
 RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default.conf
-RUN sed -i 's/VirtualHost :80*/VirtualHost :443>/g' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's/:80*/:443/g' /etc/apache2/sites-available/000-default.conf
 
 RUN sed -i "s/max_execution_time.*/max_execution_time = 0/g" /etc/php/7.4/apache2/php.ini
 
@@ -40,7 +40,7 @@ RUN curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f comp
 RUN git clone https://github.com/nielsengelen/vbo365-rest.git
 RUN cp -r vbo365-rest/. /var/www/html/
 RUN cd /var/www/html && composer install
-
+# mapping
 RUN mkdir /var/www/html/vbo-config
 RUN mkdir /var/www/html/vbo-certs
 RUN mv /var/www/html/config.php /var/www/html/vbo-config
