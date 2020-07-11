@@ -25,6 +25,7 @@ RUN echo "        AllowOverride All"   >> temp.txt
 RUN echo "        Require all granted" >> temp.txt
 RUN echo "    </Directory>" >> temp.txt
 RUN echo "      SSLEngine on" >> temp.txt
+RUN echo "      SSLProtocol -all +TLSv1.3 +TLSv1.2" >> temp.txt
 RUN echo "      SSLCertificateFile /var/www/html/certs/buhwild2020.crt" >> temp.txt
 RUN echo "      SSLCertificateKeyFile /var/www/html/certs/buhwild2020.key" >> temp.txt
 RUN echo "      SSLCertificateChainFile /var/www/html/certs/buhwild2020-ca.crt" >> temp.txt
