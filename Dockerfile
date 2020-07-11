@@ -29,6 +29,7 @@ RUN echo "      SSLProtocol -all +TLSv1.3 +TLSv1.2" >> temp.txt
 RUN echo "      SSLCertificateFile /var/www/html/certs/buhwild2020.crt" >> temp.txt
 RUN echo "      SSLCertificateKeyFile /var/www/html/certs/buhwild2020.key" >> temp.txt
 RUN echo "      SSLCertificateChainFile /var/www/html/certs/buhwild2020-ca.crt" >> temp.txt
+RUN echo "      ServerName o365.backupheroes.co.uk" >> temp.txt
 
 RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default.conf
 RUN sed -i 's/:80*/:443/g' /etc/apache2/sites-available/000-default.conf
