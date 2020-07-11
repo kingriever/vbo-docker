@@ -14,6 +14,7 @@ RUN apt --yes install zip unzip php-zip
 RUN sed -i "s/DirectoryIndex.*/DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm/g" /etc/apache2/mods-enabled/dir.conf
 RUN a2enmod rewrite
 RUN a2enmod ssl
+RUN mkdir /var/www/html/certs/
 RUN service apache2 restart
 RUN touch temp.txt
 
