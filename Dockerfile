@@ -45,5 +45,6 @@ RUN mv /var/www/html/setup.php /var/www/html/vbo-config
 RUN ln -s /var/www/html/vbo-config/config.php /var/www/html/config.php
 RUN ln -s /var/www/html/vbo-config/setup.php /var/www/html/setup.php
 RUN chown -R www-data:www-data /var/www/html/vbo-config
+RUN chown -R www-data:www-data /var/www/html/certs
 
 CMD [ "/usr/sbin/apachectl", "-D", "FOREGROUND" ]
