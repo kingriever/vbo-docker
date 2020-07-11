@@ -9,4 +9,4 @@ services:
         - '443:443'
     volumes:
         - ./config:/var/www/html/vbo-config
-        - /home/veeamadmin/vbo-365/vbo-docker/certs:/var/www/html/certs
+        - /home/veeamadmin/vbo-365/vbo-docker/certs:/var/www/html/vbo-certs
