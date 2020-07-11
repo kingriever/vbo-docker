@@ -23,10 +23,10 @@ RUN echo "        Options Indexes FollowSymLinks" >> temp.txt
 RUN echo "        AllowOverride All"   >> temp.txt
 RUN echo "        Require all granted" >> temp.txt
 RUN echo "    </Directory>" >> temp.txt
-# RUN echo "      SSLEngine on" >> temp.txt
-# RUN echo "      SSLCertificateFile /var/www/html/certs/buhwild2020.crt" >> temp.txt
-# RUN echo "      SSLCertificateKeyFile /var/www/html/certs/buhwild2020.key" >> temp.txt
-# RUN echo "      SSLCertificateChainFile /var/www/html/certs/buhwild2020-ca.crt" >> temp.txt
+RUN echo "      SSLEngine on" >> temp.txt
+RUN echo "      SSLCertificateFile /var/www/html/certs/buhwild2020.crt" >> temp.txt
+RUN echo "      SSLCertificateKeyFile /var/www/html/certs/buhwild2020.key" >> temp.txt
+RUN echo "      SSLCertificateChainFile /var/www/html/certs/buhwild2020-ca.crt" >> temp.txt
 
 RUN sed -i 's/VirtualHost :80*/VirtualHost :443>/g' /etc/apache2/sites-available/000-default.conf
 RUN sed -i '/<VirtualHost.*/r temp.txt' /etc/apache2/sites-available/000-default.conf
